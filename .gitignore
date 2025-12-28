@@ -1,0 +1,11 @@
+# Pliki skompilowane (pliki wykonywalne)
+*.exe
+*.o
+*.out
+
+# Pliki systemowe
+.DS_Store
+Thumbs.db
+
+# Pliki edytora (np. VS Code)
+.vscode/
