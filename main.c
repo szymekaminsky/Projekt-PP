@@ -4,26 +4,26 @@
 
 int main(int argc, char *argv[]) 
 {
-    if (argc < 2) {
+    if (argc < 2) 
+    {
         printf("Podaj plik\n");
         return 1;
     }
 
-    struct element* lista = NULL;
     int a = 0;
-
     start();
 
-    while(a != 3) {
+    while(a != 3) 
+    {
         a = menu();
 
         switch(a) 
         {
             case 1:
-                printf("Tu bedzie dodawanie\n");
+                dodaj();
                 break;
             case 2:
-                printf("Tu bedzie lista\n");
+                pokaz();
                 break;
             case 3:
                 printf("Koniec\n");

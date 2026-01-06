@@ -1,21 +1,24 @@
 #ifndef ARTEFAKTY_H
 #define ARTEFAKTY_H
 
-typedef struct {
-    char nazwa[100];
-    char pochodzenie[100];
-    char cywilizacja[100];
-    int zagrozenie;
+typedef struct 
+{
+    char nazwa[50];
+    int moc;
     int rok;
-    char status[50];
 } dane;
 
-struct element {
+struct element 
+{
     dane d;  
     struct element* next;
 };
 
+extern struct element* glowa;
+
 void start();
 int menu();
+void dodaj();
+void pokaz();
 
 #endif
