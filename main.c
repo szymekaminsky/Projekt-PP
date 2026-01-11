@@ -10,6 +10,8 @@ int main(int argc, char *argv[])
         return 1;
     }
 
+    wczytaj(argv[1]);
+
     int a = 0;
     start();
 
@@ -18,6 +20,7 @@ int main(int argc, char *argv[])
         a = menu();
 
         switch(a) 
+        
         {
             case 1:
                 dodaj();
@@ -26,6 +29,7 @@ int main(int argc, char *argv[])
                 pokaz();
                 break;
             case 3:
+                zapisz(argv[1]);
                 printf("Koniec\n");
                 break;
             default:
