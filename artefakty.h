@@ -18,6 +18,7 @@ void start();
 int menu();
 void dodaj();
 void pokaz();
+void usun();
 void zapisz(char* n);
 void wczytaj(char* n);
 
