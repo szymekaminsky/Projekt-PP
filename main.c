@@ -15,9 +15,10 @@ int main(int argc, char *argv[])
     int a = 0;
     start();
 
-    while(a != 4) 
+    while(a != 5) 
     {
-     a = menu();
+        a = menu();
+        
         switch(a) 
         {
             case 1:
@@ -30,6 +31,9 @@ int main(int argc, char *argv[])
                 usun();
                 break;
             case 4:
+                sortuj();
+                break;
+            case 5:
                 zapisz(argv[1]);
                 printf("Koniec\n");
                 break;

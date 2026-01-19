@@ -16,7 +16,8 @@ int menu()
     printf("1. Dodaj\n");
     printf("2. Pokaz\n");
     printf("3. Usun\n");
-    printf("4. Koniec\n");
+    printf("4. Sortuj\n");
+    printf("5. Koniec\n");
     printf("Wybor: ");
     scanf("%d", &x);
     return x;
@@ -65,22 +66,18 @@ void usun()
     while (t != NULL) 
     {
         if (strcmp(t->d.nazwa, cel) == 0) 
-        
         {
-            
-            if (t->d.moc > 5) 
-            {
+            if (t->d.moc > 5) {
                 printf("BLAD: Artefakt zbyt niebezpieczny (Moc > 5)!\n");
                 return;
             }
 
-            
             if (poprz == NULL) 
             {
-                glowa = t->next; 
+                glowa = t->next;
             } else 
             {
-                poprz->next = t->next; 
+                poprz->next = t->next;
             }
             free(t);
             printf("Usunieto element\n");
@@ -90,6 +87,39 @@ void usun()
         t = t->next;
     }
     printf("Nie znaleziono\n");
+}
+
+void sortuj()
+{
+    if (glowa == NULL) 
+    {
+        printf("Pusto, nie ma co sortowac.\n");
+        return;
+    }
+
+    int zamiana = 1;
+    struct element *t;
+    struct element *lptr = NULL;
+
+    while(zamiana)
+    {
+        zamiana = 0;
+        t = glowa;
+
+        while (t->next != lptr)
+        {
+            if (t->d.rok > t->next->d.rok)
+            { 
+                dane temp = t->d;
+                t->d = t->next->d;
+                t->next->d = temp;
+                zamiana = 1;
+            }
+            t = t->next;
+        }
+        lptr = t;
+    }
+    printf("Posortowano liste wg roku\n");
 }
 
 void zapisz(char* n)
@@ -114,7 +144,8 @@ void wczytaj(char* n)
     char bufor[50];
     int m, r;
 
-    while(fscanf(f, "%s %d %d", bufor, &m, &r) == 3) {
+    while(fscanf(f, "%s %d %d", bufor, &m, &r) == 3) 
+    {
         struct element* nowy = malloc(sizeof(struct element));
         strcpy(nowy->d.nazwa, bufor);
         nowy->d.moc = m;

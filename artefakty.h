@@ -1,13 +1,16 @@
 #ifndef ARTEFAKTY_H
 #define ARTEFAKTY_H
 
-typedef struct {
+typedef struct 
+{
     char nazwa[50];
     int moc;
     int rok;
-} dane;
+} 
+dane;
 
-struct element {
+struct element 
+{
     dane d;  
     struct element* next;
 };
@@ -19,6 +22,7 @@ int menu();
 void dodaj();
 void pokaz();
 void usun();
+void sortuj();
 void zapisz(char* n);
 void wczytaj(char* n);
 
